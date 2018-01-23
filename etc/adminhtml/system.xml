@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bodymod" translate="label" sortOrder="10">
+            <label>BodyMod</label>
+        </tab>
+        <section id="twiliosettings" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Twilio Settings</label>
+            <tab>bodymod</tab>
+            <resource>BodyMod_TwilioSettings::twiliosettings_config</resource>
+                <group id="basics" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>General</label>
+                        <field id="timezone" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Timezone</label>
+                            <source_model>Magento\Config\Model\Config\Source\Locale\Timezone</source_model>
+                        </field>
+                        <field id="forward" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>The Forwarding Number (Including country number)</label>
+                            <comment>Including Country Prefix</comment>
+                        </field>
+                        <field id="language" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Voice Language</label>
+                            <source_model>BodyMod\TwilioSettings\Model\Languages</source_model>
+                        </field>
+                </group>
+                <group id="days" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Days To Forward Calls</label>
+                        <field id="monday" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>When To Forward The Calls</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Monday</comment>
+                        </field>
+                        <field id="tuesday" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Tuesday</comment>
+                        </field>
+                        <field id="wednesday" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Wednesday</comment>
+                        </field>
+                        <field id="thursday" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Thursday</comment>
+                        </field>
+                        <field id="friday" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Friday</comment>
+                        </field>
+                        <field id="saturday" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Saturday</comment>
+                        </field>
+                        <field id="sunday" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <comment>Sunday</comment>
+                        </field>
+                </group>
+                <group id="times" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time To Forward</label>
+                        <field id="from" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>From:</label>
+                            <comment>e.g 7:00</comment>
+                        </field>
+                        <field id="to" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>To:</label>
+                            <comment>e.g 7:00</comment>
+                        </field>
+                </group>
+                <group id="messages" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Messages</label>
+                        <field id="welcomesay" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Welcome "Say" message</label>
+                        </field>
+                        <field id="welcomebool" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>"Say" message </label>
+                            <comment>Will Overwrite The Audio</comment>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                        <field id="welcomeplay" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Message played in setting time</label>
+                            <comment>e.g "http://shop.bodymod.dk/twilio/DK/mp3/bodymoddk_1.mp3"</comment>
+                        </field>
+
+                        <field id="noanswersay" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>"Say" message if there's no answer</label>
+                        </field>
+                        <field id="noanswersaybool" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>"Say" message (will overwrite the audio)</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                        <field id="noanswerplay" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Message played if there's no answer</label>
+                            <comment>e.g "http://shop.bodymod.dk/twilio/DK/mp3/bodymoddk_1.mp3"</comment>
+                        </field>
+
+                        <field id="outofsettimesay" translate="label" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>"Say" message if out of setting time</label>
+                        </field>
+                        <field id="outofsettimebool" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>"Say" message if out of setting time (will overwrite the audio)</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                        <field id="outofsettimeplay" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Message played if out of setting time</label>
+                            <comment>e.g "http://shop.bodymod.dk/twilio/DK/mp3/bodymoddk_1.mp3"</comment>
+                        </field>
+                </group>
+                <group id="exeptions" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Exception Dates</label>
+                        <field id="exeption1" translate="label" type="date" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <label>Non-Answer Dates:</label>
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption2" translate="label" type="date" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption3" translate="label" type="date" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption4" translate="label" type="date" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption5" translate="label" type="date" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption6" translate="label" type="date" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption7" translate="label" type="date" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption8" translate="label" type="date" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption9" translate="label" type="date" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                        <field id="exeption10" translate="label" type="date" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                            <frontend_model>BodyMod\TwilioSettings\Block\DatePicker</frontend_model>
+                        </field>
+                </group>
+                <group id="say" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main "Say" (Overwrites everything else)</label>
+                        <field id="say" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                           <label>Text said</label>
+                        </field>
+                        <field id="saybool" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                           <label>"Say" Message</label>
+                           <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        </field>
+                </group>
+        </section>
+    </system>
+</config>
