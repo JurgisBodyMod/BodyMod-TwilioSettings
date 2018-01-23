@@ -1,0 +1,17 @@
+{
+    "name": "BodyMod/TwilioSettings",
+    "description": "Twilio setting for Magento 2 (Requires Twilio folder to be placed on the root folder)",
+    "require": {
+        "magento/magento-composer-installer": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "extra": {
+        "map": [
+            [
+                "*",
+                "BodyMod/TwilioSettings"
+            ]
+        ]
+    }
+}
